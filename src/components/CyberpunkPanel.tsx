@@ -3,6 +3,8 @@ import { FlowingEnergy } from "./FlowingEnergy";
 import { CircularElements } from "./CircularElements";
 import { TechnicalReadouts } from "./TechnicalReadouts";
 import { DataStreams } from "./DataStreams";
+import { MatrixRain } from "./MatrixRain";
+import { WaveEffects } from "./WaveEffects";
 
 export const CyberpunkPanel = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,6 +15,12 @@ export const CyberpunkPanel = () => {
 
   return (
     <div className="relative w-full h-screen bg-background overflow-hidden">
+      {/* Matrix Rain Effect */}
+      <MatrixRain />
+
+      {/* Wave Effects */}
+      <WaveEffects />
+
       {/* Grid Background */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -21,18 +29,19 @@ export const CyberpunkPanel = () => {
             linear-gradient(rgba(255, 0, 255, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '50px 50px'
+          backgroundSize: '50px 50px',
+          zIndex: 3
         }}
       />
 
       {/* Corner Elements */}
-      <div className="absolute top-4 left-4 w-16 h-16 border-l-2 border-t-2 border-primary animate-cyber-glow" />
-      <div className="absolute top-4 right-4 w-16 h-16 border-r-2 border-t-2 border-primary animate-cyber-glow" />
-      <div className="absolute bottom-4 left-4 w-16 h-16 border-l-2 border-b-2 border-primary animate-cyber-glow" />
-      <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-primary animate-cyber-glow" />
+      <div className="absolute top-4 left-4 w-16 h-16 border-l-2 border-t-2 border-primary animate-cyber-glow" style={{ zIndex: 10 }} />
+      <div className="absolute top-4 right-4 w-16 h-16 border-r-2 border-t-2 border-primary animate-cyber-glow" style={{ zIndex: 10 }} />
+      <div className="absolute bottom-4 left-4 w-16 h-16 border-l-2 border-b-2 border-primary animate-cyber-glow" style={{ zIndex: 10 }} />
+      <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-primary animate-cyber-glow" style={{ zIndex: 10 }} />
 
       {/* Central Flowing Energy */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 5 }}>
         <FlowingEnergy />
       </div>
 
