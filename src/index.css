@@ -61,7 +61,6 @@ All colors MUST be HSL.
     --sidebar-ring: 300 100% 50%;
   }
 }
-}
 
 @layer base {
   * {
